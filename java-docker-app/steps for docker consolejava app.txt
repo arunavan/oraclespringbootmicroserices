@@ -1,0 +1,49 @@
+docker 
+
+
+
+
+steps:
+
+mkdir  java-docker-app 
+
+----> create Helo.java
+
+class Hello{  
+public static void main(String[] args){  
+System.out.println("This is java app \n by using Docker");  
+}  
+}  
+
+create Dockerfile in same folder:
+----->create Dockerfile
+
+FROM java:8  
+COPY . /var/www/java  
+WORKDIR /var/www/java  
+RUN javac Hello.java  
+CMD ["java", "Hello"]   
+
+--------> move the the java-docker-app folder 
+
+dir
+ 
+
+--------->
+//image creation
+docker build -t java-app .
+
+//container creation 
+docker run java-app
+
+//tagging
+docker image tag imageid/imagename 
+
+docker push arunajava567/java-app
+
+at client side
+==================
+
+docker pull arunajava567/java-app
+
+docker run arunajava567/java-app
