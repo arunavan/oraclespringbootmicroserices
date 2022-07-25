@@ -1,0 +1,5 @@
+docker --version
+docker images
+docker pull arunajava567/java-app
+docker run arunajava567/java-app
+
